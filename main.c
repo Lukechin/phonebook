@@ -5,9 +5,10 @@
 #include <assert.h>
 
 #include IMPL
-
 #ifdef OPT
 #define OUT_FILE "opt.txt"
+#elif OPT2
+#define OUT_FILE "opt2.txt"
 #else
 #define OUT_FILE "orig.txt"
 #endif

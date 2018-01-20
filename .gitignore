@@ -6,9 +6,11 @@
 *.swp
 *.bak
 phonebook_opt
+phonebook_opt2
 phonebook_orig
 calculate
 orig.txt
 opt.txt
+opt2.txt
 output.txt
 runtime.png
