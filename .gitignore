@@ -6,6 +6,7 @@
 *.swp
 *.bak
 phonebook_hash
+phonebook_hash2
 phonebook_opt
 phonebook_opt2
 phonebook_orig
@@ -14,5 +15,6 @@ orig.txt
 opt.txt
 opt2.txt
 hash.txt
+hash2.txt
 output.txt
 runtime.png

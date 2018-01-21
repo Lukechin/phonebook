@@ -5,15 +5,17 @@
 #include <assert.h>
 
 #include IMPL
+
 #ifdef OPT
 #define OUT_FILE "opt.txt"
 #elif OPT2
 #define OUT_FILE "opt2.txt"
 #elif HASH
 #define OUT_FILE "hash.txt"
+#elif HASH2
+#define OUT_FILE "hash2.txt"
 #else
 #define OUT_FILE "orig.txt"
-
 #endif
 
 #define DICT_FILE "./dictionary/words.txt"
@@ -46,7 +48,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-#if defined (HASH)
+#if defined(HASH) || defined(HASH2)
     entry *pHead[2207], *e[2207];
     printf("size of entry : %lu bytes\n", sizeof(entry));
     for (i = 0; i < 2207; i++) {
@@ -72,7 +74,7 @@ int main(int argc, char *argv[])
             i++;
         line[i - 1] = '\0';
         i = 0;
-#if defined (HASH)
+#if defined(HASH) || defined(HASH2)
         append(line, e);
 #else
         e = append(line, e);
@@ -83,7 +85,7 @@ int main(int argc, char *argv[])
 
     /* close file as soon as possible */
     fclose(fp);
-#if defined (HASH)
+#if defined(HASH) || defined(HASH2)
     for (i = 0; i < 2207; i++)
         e[i] = pHead[i];
 #else
@@ -113,7 +115,7 @@ int main(int argc, char *argv[])
     printf("execution time of append() : %lf sec\n", cpu_time1);
     printf("execution time of findName() : %lf sec\n", cpu_time2);
 
-#if defined (HASH)
+#if defined(HASH) || defined(HASH2)
     for (i = 0; i < 2207; i++)
         if(pHead[i]->pNext)
             free(pHead[i]);
